@@ -3,7 +3,7 @@ import { SafeAreaView, Text, View } from 'react-native';
 
 export const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView> 
       <View>
         <Text>
           Hello Wold!
