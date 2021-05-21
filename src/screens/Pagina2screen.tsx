@@ -10,7 +10,7 @@ export const Pagina2Screen = () => {
 
     useEffect(() => {
         navigator.setOptions({
-            title: 'Hola Mundo',
+            title: 'Hola Mundo', // Solo en ios, en android es una flecha
             headerBackTitle: '' // Coloca el titulo de retorno por defecto del idioma del telefono
         })
         return () => {
