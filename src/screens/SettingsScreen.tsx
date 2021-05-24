@@ -8,10 +8,11 @@ export const SettingsScreen = () => {
         <SafeAreaView
             style={{
                 ...styles.globalMargin,
-                marginTop: 10
+                marginTop: 10,
             }}
         >
-            <View>
+            <View
+            >
                 <Text style={styles.title}>
                     Settings Screen 
                 </Text>

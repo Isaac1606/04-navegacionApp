@@ -1,7 +1,7 @@
 import { DrawerScreenProps } from '@react-navigation/drawer';
 // import { StackScreenProps } from '@react-navigation/stack';
 import React, { useEffect } from 'react';
-import { Button, Text, View, TouchableOpacity } from 'react-native';
+import { Button, Text, View, TouchableOpacity, useWindowDimensions } from 'react-native';
 import { colores, styles } from '../theme/appTheme';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -14,17 +14,23 @@ interface Props extends DrawerScreenProps<any,any>{};
 // De las props nos interesa navigation asi que lo desestruturamos de las props
 export const Pagina1Screen = ( {navigation}: Props ) => {
 
+    const { width, height } = useWindowDimensions();
+
     useEffect(() => {
+        if(width > height)
+        {
         navigation.setOptions({
-            headerLeft: () => (
-                <TouchableOpacity
+            headerLeft: () => 
+                (<TouchableOpacity
                     style={{marginLeft:5}}
                     onPress={() => navigation.toggleDrawer() }  
-                >
-                    <Icon name="menu-outline" size={45} color={colores.primary}/>
-                </TouchableOpacity>
-            ),
-        })
+                    >
+                        <Icon name="menu-outline" size={45} color={colores.primary}/>
+                    </TouchableOpacity>
+                )
+            })
+        }
+        else {}
     }, [])
     
     return (
