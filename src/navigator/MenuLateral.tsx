@@ -19,6 +19,9 @@ export const  MenuLateral = () => {
         // drawerPosition="right"
             drawerType={ width > height ? "permanent" : "front" }
             drawerContent={ (props) => (<MenuInterno { ...props } />) } 
+            drawerStyle={{
+                backgroundColor: 'white'
+            }}
         >
             <Drawer.Screen name="Tabs" component={Tabs} />
             <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />

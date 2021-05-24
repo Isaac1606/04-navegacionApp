@@ -12,8 +12,11 @@ export const Tab1Screen = () => {
     return (
         <View style={{
             ...styles.globalMargin,
-            marginTop: top
-            
+            marginTop: top, 
+            flex: 1,
+            backgroundColor: 'white',
+            marginHorizontal: 0,
+            paddingHorizontal: 20         
         }}>
             <Text style={styles.title}>
                 Iconos

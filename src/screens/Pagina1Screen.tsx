@@ -17,7 +17,7 @@ export const Pagina1Screen = ( {navigation}: Props ) => {
     const { width, height } = useWindowDimensions();
 
     useEffect(() => {
-        if(width > height)
+        if(height > width)
         {
         navigation.setOptions({
             headerLeft: () => 
@@ -30,8 +30,12 @@ export const Pagina1Screen = ( {navigation}: Props ) => {
                 )
             })
         }
-        else {}
-    }, [])
+        else {
+            navigation.setOptions({
+                headerLeft: () => (undefined)
+            })
+        }
+    }, [width])
     
     return (
         <View style={styles.globalMargin}>
