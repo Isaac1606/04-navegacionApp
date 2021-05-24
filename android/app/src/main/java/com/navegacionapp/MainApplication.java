@@ -37,6 +37,7 @@ public class MainApplication extends Application implements ReactApplication {
           return "index";
         }
 
+        // Agregar al final antes de la llave };
         @Override
         protected JSIModulePackage getJSIModulePackage() {
           return new ReanimatedJSIModulePackage(); // <- add

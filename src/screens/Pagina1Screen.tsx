@@ -1,14 +1,27 @@
-import { StackScreenProps } from '@react-navigation/stack';
-import React from 'react';
-import { Button, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { DrawerScreenProps } from '@react-navigation/drawer';
+// import { StackScreenProps } from '@react-navigation/stack';
+import React, { useEffect } from 'react';
+import { Button, Text, View, TouchableOpacity } from 'react-native';
 import { styles } from '../theme/appTheme';
 
 // Heredamos de las propiedades del StackNavigationScreen 
-interface Props extends StackScreenProps<any,any>{  };
+// interface Props extends StackScreenProps<any,any>{};
+
+interface Props extends DrawerScreenProps<any,any>{};
 
 // De las props nos interesa navigation asi que lo desestruturamos de las props
 export const Pagina1Screen = ( {navigation}: Props ) => {
+
+    useEffect(() => {
+        navigation.setOptions({
+            headerLeft: () => (
+                <Button
+                    title="Menu"
+                    onPress={() => navigation.toggleDrawer() }
+                />
+            ),
+        })
+    }, [])
     
     return (
         <View style={styles.globalMargin}>
@@ -17,11 +30,17 @@ export const Pagina1Screen = ( {navigation}: Props ) => {
             </Text>
 
             <Button
-                title="Ir pgaina 2"
+                title="Ir pagina 2"
                 onPress={()=> navigation.navigate('Pagina2Screen')}
             />
 
-            <Text>
+            <Text
+                style={{
+                    marginVertical: 20,
+                    fontSize: 18,
+                    marginLeft: 5
+                }}
+            >
                 Navegar con argumentos
             </Text>
 
@@ -49,7 +68,7 @@ export const Pagina1Screen = ( {navigation}: Props ) => {
                         backgroundColor: '#FF9427'
                     }}
                     onPress={()=> navigation.navigate('PersonaScreen', {
-                        id: 1,
+                        id: 2,
                         nombre: 'Maria'
                     })}
                 >
