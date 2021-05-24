@@ -2,7 +2,9 @@ import { DrawerScreenProps } from '@react-navigation/drawer';
 // import { StackScreenProps } from '@react-navigation/stack';
 import React, { useEffect } from 'react';
 import { Button, Text, View, TouchableOpacity } from 'react-native';
-import { styles } from '../theme/appTheme';
+import { colores, styles } from '../theme/appTheme';
+
+import Icon from 'react-native-vector-icons/Ionicons';
 
 // Heredamos de las propiedades del StackNavigationScreen 
 // interface Props extends StackScreenProps<any,any>{};
@@ -15,10 +17,12 @@ export const Pagina1Screen = ( {navigation}: Props ) => {
     useEffect(() => {
         navigation.setOptions({
             headerLeft: () => (
-                <Button
-                    title="Menu"
-                    onPress={() => navigation.toggleDrawer() }
-                />
+                <TouchableOpacity
+                    style={{marginLeft:5}}
+                    onPress={() => navigation.toggleDrawer() }  
+                >
+                    <Icon name="menu-outline" size={45} color={colores.primary}/>
+                </TouchableOpacity>
             ),
         })
     }, [])

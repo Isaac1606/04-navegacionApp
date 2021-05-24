@@ -1,5 +1,13 @@
 apply plugin: "com.android.application"
 
+// Indicamos que iconos se requieren para que no se cargue todo
+project.ext.vectoricons = [
+    iconFontNames: [ 'Ionicons.ttf' ] // Name of the font files you want to copy
+]
+
+// Si no se coloca la instruccion de arriba por default carga todos los iconos
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
 import com.android.build.OutputFile
 
 /**
