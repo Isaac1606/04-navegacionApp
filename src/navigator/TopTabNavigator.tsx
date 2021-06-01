@@ -6,7 +6,7 @@ import { ContactsScreen } from '../screens/ContactsScreen';
 import { AlbumsScreen } from '../screens/AlbumsScreen';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colores } from '../theme/appTheme';
-import { Text } from 'react-native';
+import { Text, useWindowDimensions } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -17,8 +17,15 @@ export const TopTabNavigator = () => {
     // Solo se requiere que se cuide la parte de arriba
     const { top:paddingTop } = useSafeAreaInsets();
 
+    const { width } = useWindowDimensions();
+
     return (
         <Tab.Navigator
+
+            // Para solucionar el bug que ocurre cuando cambias de orientacion
+            // en la pantalla 
+            key={width}
+
             // Le indicamos que coloque la separacion pertinente
             style={{paddingTop}}
 

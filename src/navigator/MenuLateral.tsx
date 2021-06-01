@@ -29,7 +29,7 @@ export const  MenuLateral = () => {
   );
 }
 
-const MenuInterno = ( {navigation }: DrawerContentComponentProps<DrawerContentOptions>) => {
+const MenuInterno = ( { navigation }: DrawerContentComponentProps<DrawerContentOptions>) => {
     return (
         <DrawerContentScrollView>
 
