@@ -1,14 +1,9 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'remote-redux-devtools';
 import { authReducer } from '../reducers/authReducer';
 
-const composeEnhancers = composeWithDevTools({
-    name: `REDUX`,
-    realtime: true,
-    hostname: 'localhost',
-    port: 8081,
-});
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
 const reducers = combineReducers({
