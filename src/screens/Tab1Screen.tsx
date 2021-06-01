@@ -1,29 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Text, View } from 'react-native';
 import { colores, styles } from '../theme/appTheme';
-
-import Icon from 'react-native-vector-icons/Ionicons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { login } from '../redux/services/auth';
+import { TouchableIcon } from '../components/TouchableIcon';
 
 
 export const Tab1Screen = () => {
     
     const { top } = useSafeAreaInsets();
 
-    const { isLoggedIn, username }  = useAppSelector( state => state.auth );
-    
-    const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        dispatch(login('Isaac'));
-        return () => {
-            
-        }
-    }, [])
-
-    // dispatch(login('Isaac'));
+    const iconNames = [
+        "airplane-outline",
+        "attach-outline",
+        "bonfire-outline",
+        "calculator-outline",
+        "chatbubble-ellipses-outline",
+        "images-outline",
+        "leaf-outline",
+    ]
 
     return (
         <View style={{
@@ -37,10 +31,15 @@ export const Tab1Screen = () => {
             <Text style={styles.title}>
                 Iconos
             </Text>
-            <Icon name="airplane-outline" size={60} color={colores.primary}/>
+
             <Text>
-                { isLoggedIn.toString() }
-                { username }
+                {
+                    iconNames.map( name => 
+                        (
+                            <TouchableIcon key={name} iconName={name}/>
+                        ) 
+                    )
+                }
             </Text>
         </View>
     )
